@@ -1,63 +1,56 @@
-"use client";
-
-import { useState } from "react";
 import NavMenu from "@/components/ui/menu-hover-effects";
-import { Hero } from "@/components/ui/animated-hero";
 import { BackgroundPaths } from "@/components/ui/background-paths";
 
-export default function Page() {
-  const [page, setPage] = useState("home");
-
+export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white pt-20">
+    <main className="relative min-h-screen w-full overflow-hidden bg-white">
 
-      {/* NAVIGATION CONTROL */}
-      <NavMenu onNavigate={setPage} />
+      {/* NAVBAR */}
+      <NavMenu />
 
-      {/* HOME */}
-      {page === "home" && (
-        <>
-          <BackgroundPaths />
-          <Hero />
-        </>
-      )}
+      {/* HERO SECTION */}
+      <div className="pt-20">
+        <BackgroundPaths  />
+      </div>
 
-      {/* FIXTURES */}
-      {page === "fixtures" && (
-        <div className="p-10">
-          <h1 className="text-4xl font-bold">FIXTURES</h1>
-          <p className="text-gray-400 mt-2">Match schedule will appear here.</p>
+      {/* OPTIONAL CONTENT BELOW HERO */}
+      <section className="relative z-10 px-6 py-20 max-w-6xl mx-auto">
+        
+        <h2 className="text-3xl font-bold mb-6 text-black">
+          Tournament Overview
+        </h2>
+
+        <p className="text-gray-600 leading-relaxed">
+          SPD ISL is a structured 5-a-side competitive circuit featuring
+          round-robin fixtures, knockout stages, and live standings updates.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-10">
+
+          <div className="p-6 border rounded-xl">
+            <h3 className="font-semibold mb-2">20 Matches</h3>
+            <p className="text-sm text-gray-500">
+              Full season structured league format
+            </p>
+          </div>
+
+          <div className="p-6 border rounded-xl">
+            <h3 className="font-semibold mb-2">Live Standings</h3>
+            <p className="text-sm text-gray-500">
+              Points update dynamically via Firebase (next step)
+            </p>
+          </div>
+
+          <div className="p-6 border rounded-xl">
+            <h3 className="font-semibold mb-2">Teams</h3>
+            <p className="text-sm text-gray-500">
+              5 professional youth squads competing
+            </p>
+          </div>
+
         </div>
-      )}
 
-      {/* STANDINGS */}
-      {page === "standings" && (
-        <div className="p-10">
-          <h1 className="text-4xl font-bold">LEAGUE TABLE</h1>
-        </div>
-      )}
-
-      {/* TEAMS */}
-      {page === "teams" && (
-        <div className="p-10">
-          <h1 className="text-4xl font-bold">TEAM ROSTERS</h1>
-        </div>
-      )}
-
-      {/* STATS */}
-      {page === "stats" && (
-        <div className="p-10">
-          <h1 className="text-4xl font-bold">PLAYER STATS</h1>
-        </div>
-      )}
-
-      {/* LIVE */}
-      {page === "live" && (
-        <div className="p-10">
-          <h1 className="text-4xl font-bold text-red-500">LIVE MATCH CENTER</h1>
-        </div>
-      )}
-
+      </section>
     </main>
   );
 }
