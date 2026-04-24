@@ -2,13 +2,12 @@
 
 import NavMenu from "@/components/ui/menu-hover-effects";
 import { Hero } from "@/components/ui/animated-hero";
-import { BackgroundPaths, test } from "@/components/ui/background-paths";
-console.log(test);
+import { BackgroundPaths } from "@/components/ui/background-paths";
 
 export default function Home() {
   return (
     <main className="relative bg-black text-white overflow-x-hidden">
-      
+
       {/* Background FX */}
       <BackgroundPaths />
 
